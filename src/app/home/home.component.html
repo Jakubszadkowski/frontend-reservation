@@ -1,0 +1,6 @@
+<div class="container">
+    <div id="home" class="home" *ngFor="let user of content" [routerLink]="['/home', user.surname]">
+        <span>{{ user.surname }}</span>
+    </div>
+</div>
+  
