@@ -1,0 +1,39 @@
+<div class="container" *ngIf="currentUser; else loggedOut">
+    <header class="jumbotron">
+      <h3>
+        Witaj, <strong>{{currentUser.title}} {{ currentUser.name }} {{currentUser.surname}}</strong>
+      </h3>
+    </header>
+  <div class="content-wrapper">
+
+    <section>
+        <p>
+					<span *ngIf="!flag" class="name"><strong>Imie:</strong> {{currentUser.name}}</span><span *ngIf="flag" class="name"><strong>Imie: </strong><input  [(ngModel)]="currentUser.name" placeholder="Tytuł" type="text"/></span><br> 
+					<span *ngIf="!flag" class="surname"><strong>Nazwisko:</strong>{{currentUser.surname}}</span><span *ngIf="flag"class="surname"><strong  >Nazwisko: </strong><input  [(ngModel)]="currentUser.surname" placeholder="Tytuł" type="text"/></span><br>
+					<span *ngIf="!flag" class="title"><strong>Tytuł:</strong>{{currentUser.title}}</span><span *ngIf="flag"class="title"><strong  >Tytuł: </strong><input  [(ngModel)]="currentUser.title" placeholder="Tytuł" type="text"/></span><br>
+					<span *ngIf="!flag" class="phone"><strong>Telefon:</strong> {{currentUser.phone}}</span><span *ngIf="flag"class="phone"><strong >Telefon: </strong><input  [(ngModel)]="currentUser.phone" placeholder="Telefon" type="text"/></span><br>
+					<span *ngIf="!flag" class="email"><strong>Email:</strong> {{currentUser.email}}</span><span *ngIf="flag"class="email"><strong  >Email: </strong><input  [(ngModel)]="currentUser.email" placeholder="Email" type="text"/></span><br>
+        </p>
+
+      <div class="edit-wrapper ">
+        <button *ngIf="!flag" class="yellow" (click)="editingPerson()">edit</button>
+        <button *ngIf="flag" class="green" (click)="saveUser()">save</button>
+        <button *ngIf="flag" class="red" (click)="cancelEdit()">X</button>
+      </div>
+    </section>
+  </div> 
+  <div class="bookings">
+    <p>Twoje rezerwacje:</p>
+    <div id="booking" class="booking"  *ngFor="let booking of bookings" >
+ 
+        Rezerwacja w dniu: {{ booking.day }}/{{booking.month}}/{{booking.year}}<br>
+        Od godziny: {{booking.startTime }}<br>
+        Numer pokoju: {{ booking.room.roomNumber}}<br>
+        Informacje o pomieszczeniu - {{booking.room.additionInformation}}
+
+    </div>
+  </div>
+</div>
+<ng-template #loggedOut>
+  Please login.
+</ng-template>
