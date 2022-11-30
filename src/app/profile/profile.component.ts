@@ -45,8 +45,7 @@ export class ProfileComponent implements OnInit {
             },
             error : (e)=>{
               console.log(e);
-            },
-            complete: () =>{ console.info('');}
+            }
           })
 
           this.bookings.push(this.myFunctions.createBooking(Booking.bookingId, this.currentUser, room,Booking.startTime,Booking.day,Booking.month,Booking.year,Booking.timeCount))

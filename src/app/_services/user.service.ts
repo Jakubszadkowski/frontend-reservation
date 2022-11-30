@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { variable } from '../resource/variable';
 import { User } from '../model/user.model';
 
@@ -18,9 +18,14 @@ export class UserService {
   getPublicContent(): Observable<any> {
     return this.http.get<User>(variable.API_URL + 'user/getAllSurnames',httpOptions);
   }
-
+  getUserById(id:string): Observable<any>{
+    return this.http.get<User>(variable.API_URL + 'user/getUserById/'+id);
+  }
 
   editUser(user:User):Observable<any>{
-    return this.http.patch(variable.API_URL + 'user/patchUser',user,httpOptions)
+    return this.http.patch(variable.API_URL + 'user/patchUser',user,httpOptions);
+  }
+  getAllUsers():Observable<any>{
+    return this.http.get<User[]>(variable.API_URL+'user/getAllUsers',httpOptions);
   }
 }

@@ -1,6 +1,25 @@
 <div class="container">
-    <div id="home" class="home"  *ngFor="let user of content" [routerLink]="['/home', user.surname]">
-        <span class="float-lg-start">{{ user.surname }}</span>
+    <div class="Text">
+        <h2 class="jumbotron">
+            Witam w aplikacji webowej Jakuba Szadkowskiego.
+        </h2>
+        <p>
+            Strona powstała jako projekt do pracy inżynierskiej.
+            Założenia:
+        </p>
+            <ul style="list-style-type:disc">
+                <li>Aplikacja webowa.</li>
+                <ul>
+                    <li>Angular wraz z Bootstrapem jako frontend</li>
+                    <li>Spring-Boot jako backend</li>
+                    <li>MongoDB jako baza danych</li>
+                </ul>
+                <li>Strona umożliwia tworzenie rezerwacji sal</li>
+                <li>Posiada przynajmniej 2 typy użytkowników</li>
+                
+            </ul> 
+  
+
     </div>
 </div>
   

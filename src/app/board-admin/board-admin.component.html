@@ -1,6 +1,16 @@
 <div class="container">
     <header class="jumbotron">
-      <p>{{ content }}</p>
+      <h2>{{ title }}</h2>
     </header>
+    <p>Którego użytkownika chcesz edytować?</p>
+    <form action="input">
+      <select (change)="editUser($event)">
+        <option value="default">----</option>
+        <option *ngFor="let user of users" [value]="user.userId" >
+          {{user.title}} {{user.name}} {{user.surname}}
+        </option>
+      </select>
+    </form>
+    <p>You selected {{selected}}</p>
   </div>
   

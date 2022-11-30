@@ -24,7 +24,7 @@ export class AppComponent {
       const user = this.tokenStorageService.getUser();
       this.roles = user.role;
 
-      this.showAdminBoard = this.roles.includes('Admin');
+      this.showAdminBoard = this.roles.includes('admin');
       this.username = user.username;
     }
   }
