@@ -70,6 +70,7 @@ export class ProfileComponent implements OnInit {
     console.log("User 2 = ");
     console.log(this.editedUser)
     this.flag=false;
+    
   }
   saveUser():void{
       this.userService.editUser(this.currentUser).subscribe(

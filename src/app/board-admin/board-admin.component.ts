@@ -16,10 +16,18 @@ export class BoardAdminComponent implements OnInit {
   users: User[]=[];
   rooms: Room[]=[];
   selected: string='';
-  userSelected: User={'userId':'','name':'','surname':'','email':'','phone':'','role':'','title':''};
+  selectedIdRoom:string='';
+  userFlag: boolean = false;
+  roomFlag: boolean = false;
+  userSelected: User[]=[];
+  roomSelected: Room[]=[];
+  roles:string[]=["user","admin"];
+  selectedRole:string=this.roles[0];
   constructor(private userService: UserService,private roomService:RoomService,private bookingService: BookingService,private functions:myFunctions) { }
 
   ngOnInit(): void {
+    this.userSelected[0]=this.functions.createUser('','','','','','','');
+    this.roomSelected[0]=this.functions.createRoom('','','','');
     this.userService.getAllUsers().subscribe({
       next: (data:User[])=>{
         this.users = data;
@@ -47,16 +55,69 @@ export class BoardAdminComponent implements OnInit {
 
     this.userService.getUserById(this.selected).subscribe({
       next:(data:User)=>{
-        this.userSelected = data;
+        this.userSelected[0] = {...data};
+        this.userSelected[1] = {...data};
       },
       error:(e)=>{
         console.log("Error");
         console.log(e);
-      },
-      complete:()=>{
-
       }
     })
 
+  }
+  showEditUsers():void{
+    this.userSelected[1]={...this.userSelected[0]};
+    this.userFlag= true;
+  }
+  cancelUser():void{
+    this.userSelected[0]={...this.userSelected[1]}
+    this.userSelected[0]=this.userSelected[1]
+    //this.editedUser=this.currentUser;
+    console.log("User 1 = ");
+    console.log(this.userSelected[0])
+    console.log("User 2 = ");
+    console.log(this.userSelected[1])
+    this.userFlag=false;
+  }
+  saveUser():void{
+    this.userSelected[0].role=this.selectedRole;
+    this.userService.patchUser(this.userSelected[0]).subscribe({
+      error:(e)=>console.log(e),
+      complete:()=>this.userFlag=false
+    })
+  }
+  onSelected(val:string):void{
+    this.selectedRole=val;
+  }
+  editRoom(data:any):void{
+    if(data.target!=null){
+      this.selectedIdRoom = data.target.value
+    }
+    if(this.selected == "default")
+      {return;}
+
+    this.roomSelected[0] = this.functions.getRoomFromArray(this.rooms,this.selectedIdRoom);
+    this.roomSelected[1] = this.roomSelected[0];
+    console.log(this.roomSelected[0]);
+  }
+  showEditRoom():void{
+    this.roomSelected[1]={...this.roomSelected[0]};
+    this.roomFlag= true;
+  }
+  saveRoom():void{
+    this.roomService.patchRoom(this.roomSelected[0]).subscribe({
+      error:(e)=>console.log(e),
+      complete:()=>this.roomFlag=false
+    })
+  }
+  cancelRoom():void{
+    this.roomSelected[0]={...this.roomSelected[1]}
+    this.roomSelected[0]=this.roomSelected[1]
+    //this.editedUser=this.currentUser;
+    console.log("Room 1 = ");
+    console.log(this.roomSelected[0])
+    console.log("Room 2 = ");
+    console.log(this.roomSelected[1])
+    this.roomFlag=false;
   }
 }

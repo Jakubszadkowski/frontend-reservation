@@ -28,4 +28,8 @@ export class UserService {
   getAllUsers():Observable<any>{
     return this.http.get<User[]>(variable.API_URL+'user/getAllUsers',httpOptions);
   }
+  patchUser(user:User):Observable<any>{
+    console.log(user);
+    return this.http.patch(variable.API_URL+'user/patchUser',user,httpOptions);
+  }
 }

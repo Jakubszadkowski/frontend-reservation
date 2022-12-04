@@ -23,6 +23,8 @@ export class RoomService {
             "roomId":roomId,
           }, httpOptions);
     }
-
+    patchRoom(room:Room):Observable<any>{
+      return this.http.patch(variable.API_URL + 'room/patchRoom',room,httpOptions);
+    }
 
 }

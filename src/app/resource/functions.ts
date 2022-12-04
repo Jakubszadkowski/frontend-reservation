@@ -25,4 +25,13 @@ export class myFunctions{
       var temp:User={"userId":userId,"title":title,"name":name,"surname":surname,"email":email,"phone":phone,"role":role};    
       return temp;
     }
-}
+    getRoomFromArray(arr:Room[],id:string):Room{
+      console.log("id = ",id);
+      for (let index = 0; index < arr.length; index++) {
+        if(arr[index].roomId.includes(id)){
+          return arr[index];
+        }
+      }
+      return this.createRoom('','','','')
+    }
+  }

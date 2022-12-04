@@ -4,13 +4,49 @@
     </header>
     <p>Którego użytkownika chcesz edytować?</p>
     <form action="input">
-      <select (change)="editUser($event)">
+      <select (change)="editUser($event)" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
         <option value="default">----</option>
         <option *ngFor="let user of users" [value]="user.userId" >
           {{user.title}} {{user.name}} {{user.surname}}
         </option>
       </select>
     </form>
-    <p>You selected {{selected}}</p>
-  </div>
-  
+    <section>
+      <p>
+        <span *ngIf="!userFlag" class="name"><strong>Imie:</strong> {{userSelected[0].name}}</span><span *ngIf="userFlag" class="name"><strong>Imie: </strong><input  [(ngModel)]="userSelected[0].name" placeholder="Tytuł" type="text"/></span><br> 
+        <span *ngIf="!userFlag" class="surname"><strong>Nazwisko:</strong>{{userSelected[0].surname}}</span><span *ngIf="userFlag"class="surname"><strong  >Nazwisko: </strong><input  [(ngModel)]="userSelected[0].surname" placeholder="Tytuł" type="text"/></span><br>
+        <span *ngIf="!userFlag" class="title"><strong>Tytuł:</strong>{{userSelected[0].title}}</span><span *ngIf="userFlag"class="title"><strong  >Tytuł: </strong><input  [(ngModel)]="userSelected[0].title" placeholder="Tytuł" type="text"/></span><br>
+        <span *ngIf="!userFlag" class="phone"><strong>Telefon:</strong> {{userSelected[0].phone}}</span><span *ngIf="userFlag"class="phone"><strong >Telefon: </strong><input  [(ngModel)]="userSelected[0].phone" placeholder="Telefon" type="text"/></span><br>
+        <span *ngIf="!userFlag" class="email"><strong>Email:</strong> {{userSelected[0].email}}</span><span *ngIf="userFlag"class="email"><strong  >Email: </strong><input  [(ngModel)]="userSelected[0].email" placeholder="Email" type="text"/></span><br>
+        <span *ngIf="!userFlag" class="email"><strong>Rola:</strong> {{userSelected[0].role}}</span><span *ngIf="userFlag"class="email"><strong  >Rola: </strong><select #role (change)="onSelected(role.value)"><option value='user' selected>user</option><option value="admin">admin</option></select></span><br>
+      </p>
+
+    <div class="edit-wrapper">
+      <button *ngIf="!userFlag" class="yellow" (click)="showEditUsers()">edit</button>
+      <button *ngIf="userFlag" class="green" (click)="saveUser()">save</button>
+      <button *ngIf="userFlag" class="red" (click)="cancelUser()">X</button>
+    </div>
+  </section>
+  <p>Ktróry pokój chcesz edytować?</p>
+  <form action="input" class="roomClass">
+    <select (change)="editRoom($event)" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+      <option value="default">----</option>
+      <option *ngFor="let room of rooms" [value]="room.roomId" >
+        Piętro: {{room.floor}}, nr. {{room.roomNumber}}
+      </option>
+    </select>
+  </form>
+  <section>
+    <p>
+      <span *ngIf="!roomFlag" class="name"><strong>Piętro:</strong> {{roomSelected[0].floor}}</span><span *ngIf="roomFlag" class="name"><strong>Piętro: </strong><input  [(ngModel)]="roomSelected[0].floor" placeholder="Piętro" type="text"/></span><br> 
+      <span *ngIf="!roomFlag" class="surname"><strong>Numer sali:</strong>{{roomSelected[0].roomNumber}}</span><span *ngIf="roomFlag"class="surname"><strong  >Numer sali: </strong><input  [(ngModel)]="roomSelected[0].roomNumber" placeholder="Numer sali" type="text"/></span><br>
+      <span *ngIf="!roomFlag" class="title"><strong>Dodatkowe info:</strong>{{roomSelected[0].additionInformation}}</span><span *ngIf="roomFlag"class="title"><strong  >Dodatkowe info: </strong><input  [(ngModel)]="roomSelected[0].additionInformation" placeholder="Tytuł" type="text"/></span><br>
+    </p>
+
+    <div class="edit-wrapper">
+      <button *ngIf="!roomFlag" class="yellow" (click)="showEditRoom()">edit</button>
+      <button *ngIf="roomFlag" class="green" (click)="saveRoom()">save</button>
+      <button *ngIf="roomFlag" class="red" (click)="cancelRoom()">X</button>
+    </div>
+  </section>
+</div>
