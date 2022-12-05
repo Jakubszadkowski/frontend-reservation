@@ -1,0 +1,14 @@
+<header class="jumbotron">
+    <h3>
+        <strong>Witaj, oto wszyscy użytkownicy portalu do rezerwacji</strong>
+    </h3>
+</header>
+
+<div class="all-users">
+    <div id="users" class="float-left"  *ngFor="let user of users" [routerLink]="['/kadra/', user.userId]">
+        {{ user.title }} {{user.name}} {{user.surname}}<br>
+        Email: {{user.email }}<br>
+        Numer telefonu: {{ user.phone}}
+    </div>
+
+</div>

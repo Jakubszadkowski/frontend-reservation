@@ -15,9 +15,6 @@ const httpOptions = {
 export class UserService {
   constructor(private http: HttpClient) { }
 
-  getPublicContent(): Observable<any> {
-    return this.http.get<User>(variable.API_URL + 'user/getAllSurnames',httpOptions);
-  }
   getUserById(id:string): Observable<any>{
     return this.http.get<User>(variable.API_URL + 'user/getUserById/'+id);
   }

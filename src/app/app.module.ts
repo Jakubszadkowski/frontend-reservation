@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OthersComponent } from './others/others.component';
+import { OtherListComponent } from './other-list/other-list.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { OthersComponent } from './others/others.component';
     RegisterComponent,
     BoardAdminComponent,
     OthersComponent,
+    OtherListComponent,
   ],
   imports: [
     NgbModule,

@@ -1,1 +1,25 @@
-<p>others works!</p>
+<header class="jumbotron">
+    <h3>
+      Witaj, na profilu <strong>{{currentUser.title}} {{ currentUser.name }} {{currentUser.surname}}</strong>
+    </h3>
+  </header>
+
+<p>
+    <span class="title"><strong>Tytuł: </strong>{{currentUser.title}}</span><br>
+    <span class="name"><strong>Imie: </strong> {{currentUser.name}}</span><br> 
+    <span class="surname"><strong>Nazwisko: </strong>{{currentUser.surname}}</span><br>
+    <span class="phone"><strong>Telefon: </strong> {{currentUser.phone}}</span><br>
+    <span class="email"><strong>Email: </strong> {{currentUser.email}}</span><br>
+</p>
+
+<div class="bookings">
+    <p>Rezerwacje:</p>
+    <div id="booking" class="booking"  *ngFor="let booking of myBookings" >
+ 
+        Rezerwacja w dniu: {{ booking.day }}/{{booking.month}}/{{booking.year}}<br>
+        Od godziny: {{booking.startTime }}<br>
+        Numer pokoju: {{ booking.room.roomNumber}}<br>
+        <!-- Informacje o pomieszczeniu - {{booking.room.additionInformation}} -->
+
+    </div>
+  </div>
