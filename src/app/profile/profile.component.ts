@@ -64,11 +64,6 @@ export class ProfileComponent implements OnInit {
   cancelEdit():void{
     this.currentUser={...this.editedUser}
     this.currentUser=this.editedUser
-    //this.editedUser=this.currentUser;
-    console.log("User 1 = ");
-    console.log(this.currentUser)
-    console.log("User 2 = ");
-    console.log(this.editedUser)
     this.flag=false;
     
   }
