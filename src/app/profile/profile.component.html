@@ -28,8 +28,9 @@
  
         Rezerwacja w dniu: {{ booking.day }}/{{booking.month}}/{{booking.year}}<br>
         Od godziny: {{booking.startTime }}<br>
+        Do: {{booking.endTime }}<br>
         Numer pokoju: {{ booking.room.roomNumber}}<br>
-        Informacje o pomieszczeniu - {{booking.room.additionInformation}}
+        Informacje o pomieszczeniu - {{booking.room.additionInformation.properties}} z {{booking.room.additionInformation.count}} stanowiskami/miejscami.
 
     </div>
   </div>

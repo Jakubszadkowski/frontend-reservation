@@ -48,7 +48,7 @@ export class ProfileComponent implements OnInit {
             }
           })
 
-          this.bookings.push(this.myFunctions.createBooking(Booking.bookingId, this.currentUser, room,Booking.startTime,Booking.day,Booking.month,Booking.year,Booking.timeCount))
+          this.bookings.push(this.myFunctions.createBooking(Booking.bookingId, this.currentUser, room,Booking.startTime,Booking.day,Booking.month,Booking.year,Booking.endTime))
         });
         this.bookings = data;
       },

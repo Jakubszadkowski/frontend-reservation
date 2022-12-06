@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Booking } from "../model/booking.model";
+import { Info } from "../model/info.model";
 import { Room } from "../model/room.model";
 import { User } from "../model/user.model";
 
@@ -10,12 +11,12 @@ import { User } from "../model/user.model";
 
 export class myFunctions{
     
-    createBooking(bookingId: string, user: User, room: Room, day: string,month:string,year:string, startTime:string, timeCount: string):Booking {
+    createBooking(bookingId: string, user: User, room: Room, day: string,month:string,year:string, startTime:string, endTime: string):Booking {
     
-    var temp:Booking={"bookingId":bookingId,"day":day,"month":month,"year":year,"startTime":startTime,"room":room,"user":user,"timeCount":timeCount};    
+    var temp:Booking={"bookingId":bookingId,"day":day,"month":month,"year":year,"startTime":startTime,"room":room,"user":user,"endTime":endTime};    
     return temp;
     }
-    createRoom(roomId:string,floor:string,roomNumber:string,additionInformation:string):Room {
+    createRoom(roomId:string,floor:string,roomNumber:string,additionInformation:Info):Room {
     
       var temp:Room={"roomId":roomId,"floor":floor,"roomNumber":roomNumber,"additionInformation":additionInformation};    
       return temp;
@@ -32,6 +33,6 @@ export class myFunctions{
           return arr[index];
         }
       }
-      return this.createRoom('','','','')
+      return this.createRoom('','','',{"additional":'','count':'','properties':''})
     }
   }

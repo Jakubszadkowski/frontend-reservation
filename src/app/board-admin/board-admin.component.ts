@@ -27,7 +27,7 @@ export class BoardAdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.userSelected[0]=this.functions.createUser('','','','','','','');
-    this.roomSelected[0]=this.functions.createRoom('','','','');
+    this.roomSelected[0]=this.functions.createRoom('','','',{'additional':'','count':'','properties':''});
     this.userService.getAllUsers().subscribe({
       next: (data:User[])=>{
         this.users = data;

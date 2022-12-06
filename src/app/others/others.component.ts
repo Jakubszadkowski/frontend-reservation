@@ -38,7 +38,7 @@ export class OthersComponent implements OnInit {
             }
           })
 
-          this.myBookings.push(this.myFunctions.createBooking(Booking.bookingId, this.currentUser, room,Booking.startTime,Booking.day,Booking.month,Booking.year,Booking.timeCount))
+          this.myBookings.push(this.myFunctions.createBooking(Booking.bookingId, this.currentUser, room,Booking.startTime,Booking.day,Booking.month,Booking.year,Booking.endTime))
         });
         this.myBookings = data;
       },

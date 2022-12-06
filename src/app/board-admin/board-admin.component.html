@@ -13,11 +13,11 @@
     </form>
     <section>
       <p>
-        <span *ngIf="!userFlag" class="name"><strong>Imie:</strong> {{userSelected[0].name}}</span><span *ngIf="userFlag" class="name"><strong>Imie: </strong><input  [(ngModel)]="userSelected[0].name" placeholder="Tytuł" type="text"/></span><br> 
-        <span *ngIf="!userFlag" class="surname"><strong>Nazwisko:</strong>{{userSelected[0].surname}}</span><span *ngIf="userFlag"class="surname"><strong  >Nazwisko: </strong><input  [(ngModel)]="userSelected[0].surname" placeholder="Tytuł" type="text"/></span><br>
-        <span *ngIf="!userFlag" class="title"><strong>Tytuł:</strong>{{userSelected[0].title}}</span><span *ngIf="userFlag"class="title"><strong  >Tytuł: </strong><input  [(ngModel)]="userSelected[0].title" placeholder="Tytuł" type="text"/></span><br>
-        <span *ngIf="!userFlag" class="phone"><strong>Telefon:</strong> {{userSelected[0].phone}}</span><span *ngIf="userFlag"class="phone"><strong >Telefon: </strong><input  [(ngModel)]="userSelected[0].phone" placeholder="Telefon" type="text"/></span><br>
-        <span *ngIf="!userFlag" class="email"><strong>Email:</strong> {{userSelected[0].email}}</span><span *ngIf="userFlag"class="email"><strong  >Email: </strong><input  [(ngModel)]="userSelected[0].email" placeholder="Email" type="text"/></span><br>
+        <span *ngIf="!userFlag" class="name"><strong>Imie:</strong> {{userSelected[0].name}}</span><span *ngIf="userFlag" class="name"><strong>Imie: </strong><input  [(ngModel)]="userSelected[0].name" placeholder="Tytuł" type="text" title="Imię"/></span><br> 
+        <span *ngIf="!userFlag" class="surname"><strong>Nazwisko:</strong>{{userSelected[0].surname}}</span><span *ngIf="userFlag"class="surname"><strong  >Nazwisko: </strong><input  [(ngModel)]="userSelected[0].surname" placeholder="Tytuł" type="text" title="Nazwisko"/></span><br>
+        <span *ngIf="!userFlag" class="title"><strong>Tytuł:</strong>{{userSelected[0].title}}</span><span *ngIf="userFlag"class="title"><strong  >Tytuł: </strong><input  [(ngModel)]="userSelected[0].title" placeholder="Tytuł" type="text" title="Tytuł"/></span><br>
+        <span *ngIf="!userFlag" class="phone"><strong>Telefon:</strong> {{userSelected[0].phone}}</span><span *ngIf="userFlag"class="phone"><strong >Telefon: </strong><input  [(ngModel)]="userSelected[0].phone" placeholder="Telefon" type="text" title="Numer telefonu"/></span><br>
+        <span *ngIf="!userFlag" class="email"><strong>Email:</strong> {{userSelected[0].email}}</span><span *ngIf="userFlag"class="email"><strong  >Email: </strong><input  [(ngModel)]="userSelected[0].email" placeholder="Email" type="text" title="Email"/></span><br>
         <span *ngIf="!userFlag" class="email"><strong>Rola:</strong> {{userSelected[0].role}}</span><span *ngIf="userFlag"class="email"><strong  >Rola: </strong><select #role (change)="onSelected(role.value)"><option value='user' selected>user</option><option value="admin">admin</option></select></span><br>
       </p>
 
@@ -38,9 +38,17 @@
   </form>
   <section>
     <p>
-      <span *ngIf="!roomFlag" class="name"><strong>Piętro:</strong> {{roomSelected[0].floor}}</span><span *ngIf="roomFlag" class="name"><strong>Piętro: </strong><input  [(ngModel)]="roomSelected[0].floor" placeholder="Piętro" type="text"/></span><br> 
-      <span *ngIf="!roomFlag" class="surname"><strong>Numer sali:</strong>{{roomSelected[0].roomNumber}}</span><span *ngIf="roomFlag"class="surname"><strong  >Numer sali: </strong><input  [(ngModel)]="roomSelected[0].roomNumber" placeholder="Numer sali" type="text"/></span><br>
-      <span *ngIf="!roomFlag" class="title"><strong>Dodatkowe info:</strong>{{roomSelected[0].additionInformation}}</span><span *ngIf="roomFlag"class="title"><strong  >Dodatkowe info: </strong><input  [(ngModel)]="roomSelected[0].additionInformation" placeholder="Tytuł" type="text"/></span><br>
+      <span *ngIf="!roomFlag" class="name"><strong>Piętro:</strong> {{roomSelected[0].floor}}</span><span *ngIf="roomFlag" class="name"><strong>Piętro: </strong><input  [(ngModel)]="roomSelected[0].floor" placeholder="Piętro" type="text" title="Numer piętra"/></span><br> 
+      <span *ngIf="!roomFlag" class="surname"><strong>Numer sali:</strong>{{roomSelected[0].roomNumber}}</span><span *ngIf="roomFlag"class="surname"><strong  >Numer sali: </strong><input  [(ngModel)]="roomSelected[0].roomNumber" placeholder="Numer sali" type="text" title="Numer sali"/></span><br>
+      <span *ngIf="!roomFlag" class="title"><strong>Dodatkowe info:</strong></span><br>
+      <span *ngIf="!roomFlag">{{roomSelected[0].additionInformation.properties}}</span>
+      <span *ngIf="!roomFlag">{{roomSelected[0].additionInformation.count}} osób/stanowisk</span>
+      <span *ngIf="!roomFlag">{{roomSelected[0].additionInformation.additional}}</span>
+      <span *ngIf="roomFlag"class="title"><strong>Dodatkowe info: </strong><br>
+      <input [(ngModel)]="roomSelected[0].additionInformation.properties" placeholder="Rodzaj zajęć" type="text" title="Rodzaj zajęć"/><br>
+      <input [(ngModel)]="roomSelected[0].additionInformation.count" placeholder="Ilość stanowisk/osób" type="text" title="Ilość stanowisk lub osób"/><br>
+      <input [(ngModel)]="roomSelected[0].additionInformation.additional" placeholder="Więcej info" type="text" title="Inne pomocne informacje"/>
+    </span>
     </p>
 
     <div class="edit-wrapper">

@@ -9,5 +9,5 @@ export interface Booking {
     month: string,
     year: string,
     startTime: string,
-    timeCount: string
+    endTime: string
 }
