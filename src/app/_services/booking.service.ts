@@ -19,5 +19,7 @@ export class BookingService {
     getMyBookings(userId:string):Observable<any>{
         return this.http.get<Booking[]>(variable.API_URL + 'booking/getAllUserBookings/'+userId, httpOptions);
     }
-
+    getBookingBtRoom(roomId:string):Observable<any>{
+      return this.http.get<Booking[]>(variable.API_URL+'booking/getAllBookingsByRoomId/'+roomId,httpOptions);
+    }
 }

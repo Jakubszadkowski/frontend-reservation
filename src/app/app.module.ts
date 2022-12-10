@@ -1,4 +1,4 @@
-import {  NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OthersComponent } from './others/others.component';
 import { OtherListComponent } from './other-list/other-list.component';
+import { RoomComponent } from './room/room.component';
+import { RoomListComponent } from './room-list/room-list.component';
+import { CalendarModule } from 'angular-calendar';
+import { SchedulerModule } from 'angular-calendar-scheduler';
+import { TestComponent } from './test/test.component';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +31,9 @@ import { OtherListComponent } from './other-list/other-list.component';
     BoardAdminComponent,
     OthersComponent,
     OtherListComponent,
+    RoomComponent,
+    RoomListComponent,
+    TestComponent,
   ],
   imports: [
     NgbModule,
@@ -32,9 +41,12 @@ import { OtherListComponent } from './other-list/other-list.component';
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CalendarModule,
+    SchedulerModule.forRoot({ locale: 'en', headerDateFormat: 'daysRange' }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

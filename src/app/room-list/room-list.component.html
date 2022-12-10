@@ -1,0 +1,63 @@
+<header class="jumbotron">
+    <h3>
+        <strong>Witaj, oto wszystkie pomieszczenia w systemie.</strong>
+    </h3>
+</header>
+
+<!-- <div class="all-rooms">
+    <div id="room" class="float-left"  *ngFor="let room of rooms" [routerLink]="['/room/', room.roomId]">
+        Piętro: {{room.floor}}<br>
+        Numer sali: {{room.roomNumber }}<br>
+        Dodatkowe informacjie:<br>
+        {{ room.additionInformation.properties}}, {{room.additionInformation.count}} osób/stanowisk.
+    </div>
+</div> -->
+
+
+<div class="all-rooms">
+    <div *ngIf="groundFloor.length!=0" class="float-left">
+        <strong>Parter:</strong><br>
+        <div id="room" class="float-left"  *ngFor="let room of groundFloor" [routerLink]="['/room/', room.roomId]">
+            Piętro: {{room.floor}}<br>
+            Numer sali: {{room.roomNumber }}<br>
+            <!-- Dodatkowe informacjie:<br>
+            {{ room.additionInformation.properties}}, {{room.additionInformation.count}} osób/stanowisk. -->
+        </div>
+    </div>
+    <div *ngIf="firstFloor.length!=0" class="float-left">
+       <strong> Piętro 1:</strong><br>
+        <div id="room" class="float-left"  *ngFor="let room of firstFloor" [routerLink]="['/room/', room.roomId]">
+            Piętro: {{room.floor}}<br>
+            Numer sali: {{room.roomNumber }}<br>
+            <!-- Dodatkowe informacjie:<br>
+            {{ room.additionInformation.properties}}, {{room.additionInformation.count}} osób/stanowisk. -->
+        </div>
+    </div>
+    <div *ngIf="secondFloor.length!=0" class="float-left">
+        <strong> Piętro 2:</strong><br>
+        <div id="room" class="float-left"  *ngFor="let room of secondFloor" [routerLink]="['/room/', room.roomId]">
+            Piętro: {{room.floor}}<br>
+            Numer sali: {{room.roomNumber }}<br>
+            <!-- Dodatkowe informacjie:<br>
+            {{ room.additionInformation.properties}}, {{room.additionInformation.count}} osób/stanowisk. -->
+        </div>
+    </div>
+    <div *ngIf="thirdFloor.length!=0" class="float-left">
+        <strong> Piętro 3:</strong><br>
+        <div id="room" class="float-left"  *ngFor="let room of thirdFloor" [routerLink]="['/room/', room.roomId]">
+            Piętro: {{room.floor}}<br>
+            Numer sali: {{room.roomNumber }}<br>
+            <!-- Dodatkowe informacjie:<br>
+            {{ room.additionInformation.properties}}, {{room.additionInformation.count}} osób/stanowisk. -->
+        </div>
+    </div>
+    <div *ngIf="forthFloor.length!=0" class="float-left">
+        <strong> Piętro 4:</strong><br>
+        <div id="room" class="float-left"  *ngFor="let room of forthFloor" [routerLink]="['/room/', room.roomId]">
+            Piętro: {{room.floor}}<br>
+            Numer sali: {{room.roomNumber }}<br>
+            <!-- Dodatkowe informacjie:<br>
+            {{ room.additionInformation.properties}}, {{room.additionInformation.count}} osób/stanowisk. -->
+        </div>
+    </div>
+</div>

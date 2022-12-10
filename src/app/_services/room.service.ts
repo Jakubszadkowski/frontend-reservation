@@ -19,9 +19,10 @@ export class RoomService {
       return this.http.get<Room[]>(variable.API_URL+'room/getAllRooms',httpOptions);
     }
     getRoomById(roomId:string):Observable<any>{
-        return this.http.post(variable.API_URL + 'room/getRoomById', {
-            "roomId":roomId,
-          }, httpOptions);
+        return this.http.get(variable.API_URL + 'room/getRoomById/'+roomId, httpOptions);
+    }
+    getRoomsByFloor(floor:string):Observable<any>{
+      return this.http.get<Room[]>(variable.API_URL+'room/getAllRoomsFromFloor/'+floor,httpOptions)
     }
     patchRoom(room:Room):Observable<any>{
       return this.http.patch(variable.API_URL + 'room/patchRoom',room,httpOptions);

@@ -8,6 +8,9 @@ import { OtherResolver } from './others/other-resolver';
 import { OthersComponent } from './others/others.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
+import { RoomListComponent } from './room-list/room-list.component';
+import { RoomResolver } from './room/room-resolve';
+import { RoomComponent } from './room/room.component';
 
 const routes: Routes = [
   {path: 'login', component:LoginComponent},
@@ -16,11 +19,19 @@ const routes: Routes = [
   {path: 'profile', component:ProfileComponent},
   {path: 'admin',component:BoardAdminComponent},
   {path: 'kadra',component:OtherListComponent},
+  {path: 'room',component:RoomListComponent},
   {
     path: 'kadra/:id',
     component: OthersComponent,
     resolve: {
       user: OtherResolver,
+    },
+  },
+  {
+    path: 'room/:id',
+    component: RoomComponent,
+    resolve: {
+      room: RoomResolver,
     },
   },
   {path: '',redirectTo:'home',pathMatch:'full'},

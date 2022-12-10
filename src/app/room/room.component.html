@@ -1,0 +1,25 @@
+<header class="jumbotron">
+  <h3>
+      <strong>Witaj, oto informacje o sali numer {{currentRoom.roomNumber}}.</strong>
+  </h3>
+</header>
+
+<p>
+  <span  class="name"><strong>Piętro: </strong> {{currentRoom.floor}}</span><br> 
+  <span  class="surname"><strong>Numer sali: </strong>{{currentRoom.roomNumber}}</span><br>
+  <span  class="title"><strong>Dodatkowe info: </strong></span>
+  <span >{{currentRoom.additionInformation.properties}}, </span>
+  <span >{{currentRoom.additionInformation.count}} osób/stanowisk</span>
+  <span >{{currentRoom.additionInformation.additional}}</span>
+</p>
+
+<div class="bookings">
+  <p>Rezerwacje:</p>
+  <div id="booking" class="booking"  *ngFor="let booking of bookings" >
+
+      Rezerwacja w dniu: {{ booking.day }}/{{booking.month}}/{{booking.year}}<br>
+      Od godziny: {{booking.startTime }}<br>
+      Do: {{booking.endTime }}<br>
+
+  </div>
+</div>
