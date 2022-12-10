@@ -22,4 +22,7 @@ export class BookingService {
     getBookingBtRoom(roomId:string):Observable<any>{
       return this.http.get<Booking[]>(variable.API_URL+'booking/getAllBookingsByRoomId/'+roomId,httpOptions);
     }
+    createBooking(booking:Booking):Observable<any>{
+      return this.http.post(variable.API_URL+'booking/createBooking',booking,httpOptions);
+    }
 }

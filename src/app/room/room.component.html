@@ -15,11 +15,6 @@
 
 <div class="bookings">
   <p>Rezerwacje:</p>
-  <div id="booking" class="booking"  *ngFor="let booking of bookings" >
-
-      Rezerwacja w dniu: {{ booking.day }}/{{booking.month}}/{{booking.year}}<br>
-      Od godziny: {{booking.startTime }}<br>
-      Do: {{booking.endTime }}<br>
-
-  </div>
 </div>
+
+<app-calendar [name]="currentUser.title+' '+currentUser.name+' '+currentUser.surname"></app-calendar>

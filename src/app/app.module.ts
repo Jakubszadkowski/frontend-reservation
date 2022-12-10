@@ -15,10 +15,9 @@ import { OthersComponent } from './others/others.component';
 import { OtherListComponent } from './other-list/other-list.component';
 import { RoomComponent } from './room/room.component';
 import { RoomListComponent } from './room-list/room-list.component';
-import { CalendarModule } from 'angular-calendar';
-import { SchedulerModule } from 'angular-calendar-scheduler';
-import { TestComponent } from './test/test.component';
-
+import { DayPilotModule } from "@daypilot/daypilot-lite-angular";
+import { CalendarComponent } from './calendar/calendar.component';
+import { DataService } from './calendar/data.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,7 @@ import { TestComponent } from './test/test.component';
     OtherListComponent,
     RoomComponent,
     RoomListComponent,
-    TestComponent,
+    CalendarComponent,
   ],
   imports: [
     NgbModule,
@@ -42,10 +41,9 @@ import { TestComponent } from './test/test.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CalendarModule,
-    SchedulerModule.forRoot({ locale: 'en', headerDateFormat: 'daysRange' }),
+    DayPilotModule ,
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent],
   
 })
