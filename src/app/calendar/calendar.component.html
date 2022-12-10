@@ -1,11 +1,11 @@
-<div class="left" class="float-left">
+<div class="left" class="float-sm-none">
     <daypilot-navigator [config]="navigatorConfig" [(date)]="date" #navigator></daypilot-navigator>
-</div>
-<div class="main">
-    <div class="buttons">
+    <div class="sticky-top">
         <button type="button" class="btn btn-primary" (click)="navigatePrevious($event)">Poprzedni</button>
         <button type="button" class="btn btn-primary" (click)="navigateToday($event)">Dzisiaj</button>
         <button type="button" class="btn btn-primary" (click)="navigateNext($event)">Następny</button>
     </div>
-<daypilot-calendar [config]="config" [events]="events" #calendar (viewChange)="viewChange()"></daypilot-calendar>
+</div>
+<div class="main">
+<daypilot-calendar  [config]="config" [events]="events" #calendar (viewChange)="viewChange()"></daypilot-calendar>
 </div>

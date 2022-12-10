@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
-import {DayPilot, DayPilotCalendarComponent, DayPilotNavigatorComponent} from "@daypilot/daypilot-lite-angular";
-import { forkJoin } from 'rxjs';
+import {DayPilot, DayPilotCalendarComponent, DayPilotNavigatorComponent} from "daypilot-pro-angular";
 import { AppComponent } from '../app.component';
 import { RoomComponent } from '../room/room.component';
 import { BookingService } from '../_services/booking.service';
@@ -38,13 +37,19 @@ import { DataService } from './data.service';
     events: DayPilot.EventData[] = [];
   
     config: DayPilot.CalendarConfig = {
-      startDate: DayPilot.Date.today(),
+      locale: 'pl-pl',
       viewType: "Week",
-      // viewType: "Resources",
-      // columns: this.columns,
+      headerDateFormat: "d MMMM yyyy",
+      businessBeginsHour:8,
+      businessEndsHour:21,
+      startDate: DayPilot.Date.today(),
       cellHeight: 30,
+      cellDuration: 30,
+      dayBeginsHour: 8,
+      dayEndsHour: 22,
       headerHeight: 30,
-      hourWidth: 60,
+      hourWidth: 40,
+      allowEventOverlap: false,
       onTimeRangeSelected: async (args) => {
         if(this.app.isLoggedIn){
           const modal = await DayPilot.Modal.prompt("Dodać rezerwacje?:", this.roomComponent.currentUser.title+' '+this.roomComponent.currentUser.name+' '+this.roomComponent.currentUser.surname);
@@ -74,7 +79,6 @@ import { DataService } from './data.service';
           })
           console.log(this.events);
         }
-
       }
     };
   

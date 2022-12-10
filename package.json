@@ -18,11 +18,11 @@
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
-    "@daypilot/daypilot-lite-angular": "^3.11.0",
     "@ng-bootstrap/ng-bootstrap": "^13.1.1",
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.2.0",
     "date-fns": "^2.29.3",
+    "daypilot-pro-angular": "https://npm.daypilot.org/daypilot-pro-angular/trial/2022.4.5475.tar.gz",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

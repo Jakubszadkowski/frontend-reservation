@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DayPilot } from '@daypilot/daypilot-lite-angular';
+import { DayPilot } from 'daypilot-pro-angular';
 import { DataService } from '../calendar/data.service';
 import { Booking } from '../model/booking.model';
 import { Room } from '../model/room.model';

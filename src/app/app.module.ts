@@ -15,7 +15,7 @@ import { OthersComponent } from './others/others.component';
 import { OtherListComponent } from './other-list/other-list.component';
 import { RoomComponent } from './room/room.component';
 import { RoomListComponent } from './room-list/room-list.component';
-import { DayPilotModule } from "@daypilot/daypilot-lite-angular";
+import { DayPilotModule } from "daypilot-pro-angular";
 import { CalendarComponent } from './calendar/calendar.component';
 import { DataService } from './calendar/data.service';
 
