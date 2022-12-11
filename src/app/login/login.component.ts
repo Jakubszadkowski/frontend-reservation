@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
       },
       error : (e)=>{
         console.log(e);
-        this.errorMessage = e;
+        this.errorMessage = "Błędne dane";
         this.isLoginFailed = true;
       },
       complete: () => console.info('complete')
