@@ -21,6 +21,11 @@ export class myFunctions{
       var temp:Room={"roomId":roomId,"floor":floor,"roomNumber":roomNumber,"additionInformation":additionInformation};    
       return temp;
     }
+    getNewRoom():Room{
+      var temp1:Info={'properties':"",'count':'','additional':''}
+      var temp:Room={"roomId":'',"floor":'',"roomNumber":'',"additionInformation":temp1};    
+      return temp;
+    }
     createUser(userId:string,title:string,name:string,surname:string,email:string,phone:string,role:string):User {
 
       var temp:User={"userId":userId,"title":title,"name":name,"surname":surname,"email":email,"phone":phone,"role":role};    

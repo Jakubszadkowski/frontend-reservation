@@ -22,8 +22,8 @@
       </p>
 
     <div class="edit-wrapper">
-      <button *ngIf="!userFlag" class="yellow" (click)="showEditUsers()">edit</button>
-      <button *ngIf="userFlag" class="green" (click)="saveUser()">save</button>
+      <button *ngIf="!userFlag" class="yellow" (click)="showEditUsers()">Edytuj</button>
+      <button *ngIf="userFlag" class="green" (click)="saveUser()">Zapisz</button>
       <button *ngIf="userFlag" class="red" (click)="cancelUser()">X</button>
     </div>
   </section>
@@ -32,7 +32,7 @@
     <select (change)="editRoom($event)" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
       <option value="default">----</option>
       <option *ngFor="let room of rooms" [value]="room.roomId" >
-        Piętro: {{room.floor}}, nr. {{room.roomNumber}}
+        Pomieszczenie nr.: {{room.roomNumber}}, piętro. {{room.floor}}
       </option>
     </select>
   </form>
@@ -52,8 +52,8 @@
     </p>
 
     <div class="edit-wrapper">
-      <button *ngIf="!roomFlag" class="yellow" (click)="showEditRoom()">edit</button>
-      <button *ngIf="roomFlag" class="green" (click)="saveRoom()">save</button>
+      <button *ngIf="!roomFlag" class="yellow" (click)="showEditRoom()">Edytuj</button>
+      <button *ngIf="roomFlag" class="green" (click)="saveRoom()">Zapisz</button>
       <button *ngIf="roomFlag" class="red" (click)="cancelRoom()">X</button>
     </div>
   </section>

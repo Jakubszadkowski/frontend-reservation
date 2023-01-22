@@ -18,7 +18,6 @@ import { RoomListComponent } from './room-list/room-list.component';
 import { DayPilotModule } from "daypilot-pro-angular";
 import { CalendarComponent } from './calendar/calendar.component';
 import { DataService } from './calendar/data.service';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +40,7 @@ import { DataService } from './calendar/data.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    DayPilotModule ,
+    DayPilotModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent],

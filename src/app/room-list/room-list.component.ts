@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Room } from '../model/room.model';
+import { myFunctions } from '../resource/functions';
 import { RoomService } from '../_services/room.service';
+import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
   selector: 'app-room-list',
@@ -9,13 +11,22 @@ import { RoomService } from '../_services/room.service';
 })
 export class RoomListComponent implements OnInit {
 
-  constructor(private roomService: RoomService) { }
+  constructor(private roomService: RoomService,private myFuncions: myFunctions,private token: TokenStorageService) { }
+  flag:boolean=false;
+  isAdmin:boolean=false;
+  newRoom!:Room;
   groundFloor:Room[]=[];
   firstFloor:Room[]=[];
   secondFloor:Room[]=[];
   thirdFloor:Room[]=[];
   forthFloor:Room[]=[];
+  flagAddRoom:boolean=false;
   ngOnInit(): void {
+    this.newRoom = this.myFuncions.getNewRoom();
+    if(this.token.getUser().role=='admin'){
+      this.flag=true;
+      this.isAdmin=true;
+    }
     this.roomService.getRoomsByFloor('0').subscribe({
       next:(data:Room[])=>{
         this.groundFloor=data;
@@ -49,16 +60,23 @@ export class RoomListComponent implements OnInit {
       }
     })
   }
-  // rooms:Room[][]=new Array<Array<Room>>();
-  // ngOnInit(): void{
-  //   for (let index = 0; index < 5; index++) {
-  //     this.roomService.getRoomsByFloor(index.toString()).subscribe({
-  //       next:(data:Room[])=>{
-  //         this.rooms[index]=data;
-  //       },
-  //       error:(e)=>{console.log(e)}
-  //     })
-  //   }
-  //   console.log(this.rooms)
-  // }
+  addRoom():void{
+    this.flagAddRoom=!this.flagAddRoom;
+  }
+  saveRoom():void{
+    this.roomService.addRoom(this.newRoom).subscribe({
+      next:()=>{
+        this.flagAddRoom=false;
+        console.log('dodano');
+      },
+      error:(e)=>{
+        alert("Numer jest już używany");
+      }
+    })
+  }
+  cancelRoom():void{
+    this.newRoom=this.myFuncions.getNewRoom();
+    this.flagAddRoom=false;
+    console.log(this.newRoom);
+  }
 }

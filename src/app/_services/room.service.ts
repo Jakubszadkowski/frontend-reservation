@@ -15,6 +15,9 @@ const httpOptions = {
 
 export class RoomService {
     constructor(private http: HttpClient) { }
+    addRoom(temp:Room):Observable<any>{
+      return this.http.post(variable.API_URL+'room/createRoom',temp,httpOptions);
+    }
     getAllRooms():Observable<any>{
       return this.http.get<Room[]>(variable.API_URL+'room/getAllRooms',httpOptions);
     }
